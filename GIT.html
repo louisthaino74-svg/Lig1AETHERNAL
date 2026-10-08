@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIG 1 AETHERNAL</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#07152f;color:#fff}
+header{background:linear-gradient(135deg,#08245d,#0b5cff);padding:28px 18px;text-align:center;border-bottom:4px solid #ffd21c}
+.logo{font-size:34px;font-weight:900;letter-spacing:1px}.sub{color:#ffd21c;font-weight:700}
+nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:14px;background:#061126}
+nav button{background:#ffd21c;border:0;padding:10px 15px;border-radius:8px;font-weight:800;cursor:pointer}
+main{max-width:1000px;margin:auto;padding:22px}.hero{background:linear-gradient(135deg,#0d2c68,#10204a);border-radius:16px;padding:28px;text-align:center}
+.hero h1{font-size:42px;margin:0 0 8px}.hero p{color:#d8e4ff}
+.search{width:100%;padding:14px;border-radius:10px;border:2px solid #2d63d8;margin:15px 0;font-size:16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.card{background:#0d1f40;border:1px solid #244d99;border-radius:14px;padding:20px}
+.card h3{color:#ffd21c;margin-top:0}.badge{display:inline-block;background:#ffd21c;color:#061126;padding:5px 9px;border-radius:20px;font-weight:800}
+table{width:100%;border-collapse:collapse;background:#0d1f40;border-radius:12px;overflow:hidden}th,td{padding:13px;border-bottom:1px solid #244d99;text-align:left}th{color:#ffd21c}
+section{margin-top:25px}footer{text-align:center;padding:30px;color:#9db4df}
+</style>
+</head>
+<body>
+<header><div class="logo">⚽ LIG 1 AETHERNAL</div><div class="sub">TOURNOI eFOOTBALL • SAISON 2026</div></header>
+<nav>
+<button onclick="show('accueil')">Accueil</button><button onclick="show('classement')">Classement</button>
+<button onclick="show('matchs')">Matchs</button><button onclick="show('equipes')">Équipes</button>
+</nav>
+<main>
+<section id="accueil" class="hero">
+<h1>LIG 1 AETHERNAL</h1><p>La plateforme officielle de ton tournoi eFootball.</p>
+<input class="search" id="search" oninput="searchSite()" placeholder="🔎 Rechercher une équipe, un joueur ou un match...">
+<div class="cards">
+<div class="card"><h3>🏆 Champion</h3><p id="champ">À déterminer</p></div>
+<div class="card"><h3>🎮 Compétition</h3><p>eFootball</p></div>
+<div class="card"><h3>📅 Saison</h3><p>2026</p></div>
+</div>
+</section>
+
+<section id="classement" style="display:none"><h2>🏆 Classement</h2>
+<table><thead><tr><th>#</th><th>Équipe</th><th>MJ</th><th>Pts</th></tr></thead>
+<tbody id="standings"><tr><td>1</td><td>YOUR KILLER</td><td>0</td><td>0</td></tr><tr><td>2</td><td>AETHERNAL XI</td><td>0</td><td>0</td></tr><tr><td>3</td><td>CHARLITO</td><td>0</td><td>0</td></tr></tbody></table>
+</section>
+
+<section id="matchs" style="display:none"><h2>⚽ Matchs</h2>
+<div class="cards"><div class="card"><span class="badge">À venir</span><h3>YOUR KILLER vs AETHERNAL XI</h3><p>Date : À annoncer</p></div><div class="card"><span class="badge">À venir</span><h3>CHARLITO vs AETHERNAL XI</h3><p>Date : À annoncer</p></div></div>
+</section>
+
+<section id="equipes" style="display:none"><h2>👥 Équipes</h2>
+<div class="cards"><div class="card"><h3>YOUR KILLER</h3><p>eFootball</p></div><div class="card"><h3>AETHERNAL XI</h3><p>eFootball</p></div><div class="card"><h3>CHARLITO</h3><p>eFootball</p></div></div>
+</section>
+</main>
+<footer>© 2026 LIG 1 AETHERNAL • Site officiel du tournoi</footer>
+<script>
+function show(id){['accueil','classement','matchs','equipes'].forEach(x=>document.getElementById(x).style.display=x===id?'block':'none')}
+function searchSite(){let q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('.card,tbody tr').forEach(e=>e.style.display=!q||e.innerText.toLowerCase().includes(q)?'':'none')}
+</script>
+</body></html>
